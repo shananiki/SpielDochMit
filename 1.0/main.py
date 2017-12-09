@@ -1,17 +1,17 @@
 import sys, pygame
-from MenuState import *
+from MapEditorState import *
 
 BLACK = 0, 0, 0
 WHITE = 255, 255, 255
 
 
-current_state = MenuState()
+current_state = MapEditorState()
 
 pygame.init()
 screen = pygame.display.set_mode((1280, 720))
 pygame.display.set_caption("SpielDochMit - v0.0.0.1a")
 
-print("Loaded Image")
+#Cursor
 
 clock = pygame.time.Clock()
 
@@ -19,7 +19,7 @@ box_x = 300
 box_dir = 3
 
 while 1:
-    clock.tick(25)
+    clock.tick(128)
     event = pygame.event.poll()
 
     #Mach screen neu !
