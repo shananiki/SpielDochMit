@@ -1,8 +1,11 @@
 import pygame
-from Button import Button
+
 import Colors
-from Interface import Interface
+from Button import Button
 from Inventory import Inventory
+from Skilltree import Skilltree
+
+
 class Menu:
 
 
@@ -19,11 +22,14 @@ class Menu:
         skilltreeButton = Button("images/skilltree", self.x_pos + 70, self.y_pos, 32, 32, ID=3)
         self.buttonList.append(helmetButton)
         self.buttonList.append(inventoryButton)
+        self.buttonList.append(skilltreeButton)
 
-        #Test
         inventory = Inventory(120, 120, 180, 240, True, ID=2)
+        skilltree = Skilltree(100, 100, 180, 200, True, ID=3)
+        skilltree.visible = False
         self.interface_list = []
         self.interface_list.append(inventory)
+        self.interface_list.append(skilltree)
 
 
     def setVisible(self, value):
@@ -48,7 +54,7 @@ class Menu:
 
     def handle_keyevents(self, event):
         for interface in self.interface_list:
-            interface.handle_keyevents(event)
+                interface.handle_keyevents(event)
         mouse_x, mouse_y = pygame.mouse.get_pos()
         for button in self.buttonList:
             if (event.type == pygame.MOUSEMOTION):
